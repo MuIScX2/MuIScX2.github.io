@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">phone-number</th>
+                <th scope="col">personal-information</th>
+                <th scope="col">computer</th>
+                <th scope="col">Record</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_stock_info if record["symbol"] != "N/A" %}
+                <tr>
+                    <td> {{ record["Name"] }}</td>
+                    <td> {{ record["last_name"] }}</td>
+                    <td> {{ record["phone_number"] }}</td>
+                    <td><a class="nav-link" href="/p_info/{{ record["id"] }}">Personal Info</a></td>
+                    <td><a class="nav-link" href="/Computer/{{ record["id"] }}">Computer Info</a></td>
+                    <td><a class="nav-link" href="/Record/{{ record["id"] }}">Record</a></td>
+
+
+
+            {% endfor %}
+
+
+{% endblock %}

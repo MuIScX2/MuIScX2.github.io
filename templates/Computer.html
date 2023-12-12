@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Computer
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">serial_number</th>
+                <th scope="col">type</th>
+                <th scope="col">make_from</th>
+                <th scope="col">make_time</th>
+                <th scope="col">software</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_stock_info if record["symbol"] != "N/A" %}
+                <tr>
+                    <td> {{ record["Name"] }}</td>
+                    <td> {{ record["serial_number"] }}</td>
+                    <td> {{ record["Type"] }}</td>
+                    <td> {{ record["Make_from"] }}</td>
+                    <td> {{ record["Make_time"] }}</td>
+                    <td> {{ record["serial_number"] }}</td>
+
+
+
+            {% endfor %}
+
+
+{% endblock %}

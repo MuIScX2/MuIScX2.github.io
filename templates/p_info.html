@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Personal information
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Last_name</th>
+                <th scope="col">job_title</th>
+                <th scope="col">address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_stock_info if record["symbol"] != "N/A" %}
+                <tr>
+
+                    <td> {{ record["Name"] }}</td>
+                    <td> {{ record["last_name"] }}</td>
+                    <td> {{ record["job_title"] }}</td>
+                    <td> {{ record["address"] }}</td>
+
+
+
+            {% endfor %}
+
+
+{% endblock %}

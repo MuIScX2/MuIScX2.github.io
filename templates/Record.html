@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Record
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Note</th>
+                <th scope="col">descriptions</th>
+                <th scope="col">problem</th>
+                <th scope="col">Timestamp</th>
+                <th scope="col">Operator_Name</th>
+                <th scope="col">Solution</th>
+                <th scope="col">Success</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_stock_info if record["symbol"] != "N/A" %}
+                <tr>
+                    <td> {{ record["Name"] }}</td>
+                    <td> {{ record["last_name"] }}</td>
+                    <td> {{ record["Note"] }}</td>
+                    <td> {{ record["descriptions"] }}</td>
+                    <td> {{ record["problem"] }}</td>
+                    <td> {{ record["Timestamp"] }}</td>
+                    <td> <a class="nav-link" href="/Operator/{{ record["name"] }}">{{ record["name"] }}</a></td>
+                    <td><a class="nav-link" href="/Solution/{{ record["solution_id"] }}">{{ record["solution"] }}</a> </td>
+                    {% if record["solution"] == 0  %}
+                        <td> No</td>
+
+                    {% else %}
+                        <td> Yes</td>
+
+                    {% endif %}
+
+
+
+            {% endfor %}
+
+
+{% endblock %}

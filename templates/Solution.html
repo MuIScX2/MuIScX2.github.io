@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Solution
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Problem</th>
+                <th scope="col">Error_code</th>
+                <th scope="col">problem_type</th>
+                <th scope="col">Type</th>
+                <th scope="col">Software</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_stock_info if record["symbol"] != "N/A" %}
+                <tr>
+                    <td> {{ record["problem"] }}</td>
+                    <td> {{ record["Error_code"] }}</td>
+                    <td> {{ record["text"] }}</td>
+                    <td> {{ record["Type"] }}</td>
+                    <td> {{ record["Software"] }}</td>
+
+
+
+
+            {% endfor %}
+
+
+{% endblock %}
